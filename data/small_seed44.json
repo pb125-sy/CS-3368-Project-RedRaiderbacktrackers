@@ -1,0 +1,418 @@
+{
+  "metadata": {
+    "scale": "small",
+    "seed": 44,
+    "num_courses": 25,
+    "num_rooms": 6,
+    "num_timeslots": 8
+  },
+  "rooms": [
+    {
+      "id": "R0",
+      "building": "ELECE",
+      "capacity": 100
+    },
+    {
+      "id": "R1",
+      "building": "SCIENC",
+      "capacity": 40
+    },
+    {
+      "id": "R2",
+      "building": "HOLDEN",
+      "capacity": 80
+    },
+    {
+      "id": "R3",
+      "building": "HOLDEN",
+      "capacity": 60
+    },
+    {
+      "id": "R4",
+      "building": "TFPETR",
+      "capacity": 50
+    },
+    {
+      "id": "R5",
+      "building": "TFPETR",
+      "capacity": 100
+    }
+  ],
+  "timeslots": [
+    {
+      "id": 0,
+      "day_group": "MWF",
+      "slot_order": 1,
+      "is_undesirable": true
+    },
+    {
+      "id": 1,
+      "day_group": "MWF",
+      "slot_order": 2,
+      "is_undesirable": false
+    },
+    {
+      "id": 2,
+      "day_group": "MWF",
+      "slot_order": 3,
+      "is_undesirable": false
+    },
+    {
+      "id": 3,
+      "day_group": "MWF",
+      "slot_order": 4,
+      "is_undesirable": true
+    },
+    {
+      "id": 4,
+      "day_group": "TR",
+      "slot_order": 1,
+      "is_undesirable": true
+    },
+    {
+      "id": 5,
+      "day_group": "TR",
+      "slot_order": 2,
+      "is_undesirable": false
+    },
+    {
+      "id": 6,
+      "day_group": "TR",
+      "slot_order": 3,
+      "is_undesirable": false
+    },
+    {
+      "id": 7,
+      "day_group": "TR",
+      "slot_order": 4,
+      "is_undesirable": true
+    }
+  ],
+  "courses": [
+    {
+      "id": "CS_1000",
+      "instructor_id": "I0",
+      "enrollment": 27,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        2,
+        6
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1001",
+      "instructor_id": "I1",
+      "enrollment": 96,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        6,
+        4
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1002",
+      "instructor_id": "I2",
+      "enrollment": 100,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        5,
+        2
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1003",
+      "instructor_id": "I3",
+      "enrollment": 51,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        2,
+        0
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1004",
+      "instructor_id": "I4",
+      "enrollment": 21,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        4,
+        2
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1005",
+      "instructor_id": "I5",
+      "enrollment": 52,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        0,
+        2
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1006",
+      "instructor_id": "I6",
+      "enrollment": 76,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        7,
+        1
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1007",
+      "instructor_id": "I7",
+      "enrollment": 23,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        3,
+        6
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1008",
+      "instructor_id": "I0",
+      "enrollment": 70,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        0,
+        5
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1009",
+      "instructor_id": "I1",
+      "enrollment": 75,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        7,
+        4
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1010",
+      "instructor_id": "I2",
+      "enrollment": 30,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        7,
+        6
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1011",
+      "instructor_id": "I3",
+      "enrollment": 17,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        4,
+        1
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1012",
+      "instructor_id": "I4",
+      "enrollment": 15,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        4,
+        2
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1013",
+      "instructor_id": "I5",
+      "enrollment": 22,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        5,
+        2
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1014",
+      "instructor_id": "I6",
+      "enrollment": 34,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        0,
+        3
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1015",
+      "instructor_id": "I7",
+      "enrollment": 94,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        7,
+        0
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1016",
+      "instructor_id": "I0",
+      "enrollment": 35,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        0,
+        4
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1017",
+      "instructor_id": "I1",
+      "enrollment": 23,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        4,
+        0
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1018",
+      "instructor_id": "I2",
+      "enrollment": 32,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        2,
+        5
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1019",
+      "instructor_id": "I3",
+      "enrollment": 50,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        7,
+        2
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    },
+    {
+      "id": "CS_1020",
+      "instructor_id": "I4",
+      "enrollment": 36,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        7,
+        0
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1021",
+      "instructor_id": "I5",
+      "enrollment": 34,
+      "student_cohort": "C1",
+      "preferred_slots": [
+        6,
+        3
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1022",
+      "instructor_id": "I6",
+      "enrollment": 43,
+      "student_cohort": "C2",
+      "preferred_slots": [
+        1,
+        2
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1023",
+      "instructor_id": "I7",
+      "enrollment": 19,
+      "student_cohort": "C3",
+      "preferred_slots": [
+        2,
+        0
+      ],
+      "preferred_days": [
+        "TR"
+      ]
+    },
+    {
+      "id": "CS_1024",
+      "instructor_id": "I0",
+      "enrollment": 56,
+      "student_cohort": "C0",
+      "preferred_slots": [
+        5,
+        3
+      ],
+      "preferred_days": [
+        "MWF"
+      ]
+    }
+  ]
+}
