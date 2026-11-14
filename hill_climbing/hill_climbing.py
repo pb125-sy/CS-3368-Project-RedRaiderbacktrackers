@@ -49,7 +49,7 @@ def hill_climbing(state, time_limit=300):
 
 if __name__ == "__main__":
     # Change this file name to try another instance.
-    file_name = "data/small_seed42.json"
+    file_name = "../data/small_seed42.json"
     seed = 42
     problem = scheduler_core.load_instance(file_name)
     state = scheduler_core.create_initial_state(problem, seed)
