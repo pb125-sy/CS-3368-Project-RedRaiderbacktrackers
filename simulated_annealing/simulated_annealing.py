@@ -1,4 +1,3 @@
-
 """
 Simulated Annealing with Geometric Cooling (base model + 1 improvement)
 Author: Akaela Espina
@@ -11,10 +10,10 @@ Improvement over steepest-ascent hill climbing (base model):
 Uses the team's shared scheduler_core.py for the state, the initial
 state, and the cost function, so results compare fairly across models.
 
-Usage (from this folder):
-    python simulated_annealing.py                  # all instances, 5 runs each
-    python simulated_annealing.py --scales small   # one size only
-    python simulated_annealing.py --runs 3 --time-limit 60
+Usage (from the repo top folder):
+    python simulated_annealing/simulated_annealing.py                  # all instances, 5 runs each
+    python simulated_annealing/simulated_annealing.py --scales small   # one size only
+    python simulated_annealing/simulated_annealing.py --runs 3 --time-limit 60
 """
 
 import argparse
@@ -23,11 +22,14 @@ import json
 import math
 import random
 import time
+import sys
 from pathlib import Path
 
-from src.scheduler_core import load_instance, create_initial_state
+SCRIPT_DIR = Path(__file__).resolve().parent      # simulated_annealing/
+REPO_ROOT = SCRIPT_DIR.parent                       # repo top folder
+sys.path.insert(0, str(REPO_ROOT))                  # so "src" is found from anywhere
 
-SCRIPT_DIR = Path(__file__).resolve().parent
+from src.scheduler_core import load_instance, create_initial_state
 
 
 # Neighborhood: ONE random move per step (annealing never needs the full list)
@@ -169,7 +171,7 @@ def simulated_annealing(problem, seed=42, alpha=0.95, iters_per_temp=100,
 
 def main():
     p = argparse.ArgumentParser(description="Simulated annealing timetabler")
-    p.add_argument("--data-dir", default=str(SCRIPT_DIR / "data"))
+    p.add_argument("--data-dir", default=str(REPO_ROOT / "data"))
     p.add_argument("--out-dir", default=str(SCRIPT_DIR / "results"))
     p.add_argument("--scales", nargs="+", default=["small", "medium", "large"])
     p.add_argument("--runs", type=int, default=5, help="independent runs per instance")
@@ -233,3 +235,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
