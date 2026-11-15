@@ -1,0 +1,7 @@
+size,model,runs,feasible_pct,mean_start_soft,mean_final_soft,best_final_soft,worst_final_soft,mean_states_evaluated,mean_runtime_s
+small,Simulated annealing,25,100,223.0,65.0,49,78,30564,2.35
+small,Min-conflicts (Minton 1992),25,100,223.0,106.1,62,137,28803,0.08
+medium,Simulated annealing,25,100,486.2,119.9,100,138,29976,7.4
+medium,Min-conflicts (Minton 1992),25,100,486.2,131.8,101,159,200903,0.51
+large,Simulated annealing,25,100,1014.6,347.5,319,393,29104,26.82
+large,Min-conflicts (Minton 1992),25,100,1014.6,283.8,249,329,875167,2.36
