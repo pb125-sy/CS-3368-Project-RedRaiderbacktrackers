@@ -166,6 +166,10 @@ def simulated_annealing(problem, seed=42, alpha=0.95, iters_per_temp=100,
         "history": history,
     }
 
+def run_benchmark(instance_path: str, seed: int = 42) -> dict:
+    problem = load_instance(instance_path)
+    results= simulated_annealing(problem, seed)
+    return results
 
 # Experiment runner: every instance x several seeds -> results/ folder 
 

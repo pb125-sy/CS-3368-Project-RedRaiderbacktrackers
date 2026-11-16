@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 from pathlib import Path
 
-SCRIPT_DIR = Path(__file__).resolve().parent      # simulated_annealing/
+SCRIPT_DIR = Path(__file__).resolve().parent      
 REPO_ROOT = SCRIPT_DIR.parent                       # repo top folder
 sys.path.insert(0, str(REPO_ROOT))                  # so "src" is found from anywhere
 
@@ -15,6 +15,7 @@ from src.scheduler_core import load_instance, create_initial_state
 def hill_climbing(state, time_limit=300):
     start = time.perf_counter()
     score, initial_hard, initial_soft = state.evaluate()
+    initial_score=score
     steps = 0
     checked = 0
     history = [score]
@@ -45,9 +46,10 @@ def hill_climbing(state, time_limit=300):
 
     results = {
         "steps": steps,
+        "initial_score": initial_score,
         "initial_hard": initial_hard,
         "initial_soft": initial_soft,
-        "is_feasible": initial_hard == 0,
+        "is_feasible": (state.evaluate()[1] == 0),
         "best_hard": state.evaluate()[1],
         "best_soft": state.evaluate()[2],
         "neighbors_checked": checked,
@@ -55,6 +57,12 @@ def hill_climbing(state, time_limit=300):
         "stop_reason": reason,
         "cost_history": history,
     }
+    return state, results
+
+def run_benchmark(instance_path: str, seed=42, time_limit=300) -> dict:
+    problem = load_instance(instance_path)
+    state = create_initial_state(problem, seed)
+    state, results=hill_climbing(state,time_limit)
     return state, results
     
 if __name__ == "__main__":
@@ -81,18 +89,15 @@ if __name__ == "__main__":
             filepath=f"data/{scale[x]}_seed{y_1}.json"
             seed=100
             for z in range(5):
-                problem = load_instance(filepath)
-                state = create_initial_state(problem, seed)
-                initial = state.evaluate()
-                state, results = hill_climbing(state)
+                new_state, results = run_benchmark(filepath,seed)
                 if results["is_feasible"]:
                     sum_f+=1
                 sum_h+=results["best_hard"]
                 sum_s+=results["best_soft"]
                 sum_iter+=results["steps"]
                 sum_time+=results["seconds"]
-                sum_initial+=initial[0]  
-                sum_final+=state.evaluate()[0]
+                sum_initial+=results["initial_score"]  
+                sum_final+=new_state.evaluate()[0]
                 print(f"{filepath}\tseed={seed}\thard {results["initial_hard"]} -> {results["best_hard"]}\tsoft {results["initial_soft"]} -> {results["best_soft"]}\titers= {results["steps"]}\t{results["seconds"]}")
                 seed+=1
                 if ((x==y==z==0) or ((x==1) and (y==z==0)) or ((x==2) and (y==z==0))):
@@ -111,9 +116,10 @@ if __name__ == "__main__":
     for i in range(3):
         print(f"{scale[i]}\t{feasible[i]}\t\t{mean_h[i]:.1f}\t{mean_s[i]:.1f}\t{mean_iter[i]:.1f}\t{mean_time[i]}")
 
+    summary_list=[]
     with open(f"result_summary.json", "w") as file:
         for x in range(3):
-            json.dump({
+            summary_list.append({
                 "scale": scale[x],
                 "feasible": feasible[x],
                 "mean_hard": mean_h[x],
@@ -122,7 +128,8 @@ if __name__ == "__main__":
                 "mean_time": mean_time[x],
                 "mean_initial": mean_initial[x],
                 "mean_final": mean_final[x]
-            }, file, indent=2)
+            })
+        json.dump(summary_list, file, indent=2)
     # Visual Representation Export
     names = scale
     
